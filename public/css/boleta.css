@@ -1,0 +1,132 @@
+body {
+    background-color: #e0d9d1;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.header-color {
+    background-color: #6b173f; /* Color guinda del IPN */
+    color: white;
+    padding: 20px; /* Increase padding for a larger header */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: auto;
+    max-width: 100%;
+
+}
+
+.text-center {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.sidebar {
+    background-color: #6b173f; /* Ajustado para usar el mismo guinda intermedio de la barra lateral */
+    color: white;
+    min-width: 220px;
+    padding: 15px;
+    height: calc(100vh - 160px); /* Ajustar altura de la barra lateral */
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-link {
+    color: #ccc; /* Color claro para los enlaces */
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.nav-link.active {
+    color: white;
+    background-color: #6b173f; /* Un tono guinda más oscuro para el enlace activo */
+}
+
+.card {
+    margin: 20px;
+    flex-grow: 1;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.table-header {
+    background-color: #6b173f; /* Un tono más oscuro de guinda para los encabezados de la tabla */
+    color: white;
+}
+
+.high-grade {
+    font-weight: bold; /* Negrita para la nota más alta */
+}
+
+footer{
+    background-color: #6B173F;
+    color:#ffffff;
+    padding: 10px 0;
+}
+
+.footer-bar{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+}
+
+.footer-bar p{
+    flex: 1;
+    border-top: 1px solid #ffffff;
+    padding-top: 10px;
+}
+
+.footer-logo img-fluid{
+    padding: 0 20px;
+    height: auto;
+    width: 120px;
+}
+
+.profile-button {
+    background-color: #6b173f; /* Mismo color que el encabezado */
+    color: white;
+    border: none;
+    padding: 10px 15px; /* Ajustar el padding para el botón */
+    font-size: 1rem; /* Ajustar el tamaño de la fuente del botón */
+    width: 100%;
+}
+
+@media (max-width: 767px) {
+    .header-color, .footer-bar {
+        flex-direction: column;  /* Alinea los elementos verticalmente en dispositivos pequeños */
+        padding: 10px;
+    }
+
+    .logo, .profile-button {
+        margin: 10px auto;  /* Centra el logo y el botón de perfil */
+    }
+
+    .text-center {
+        font-size: 1.2rem; /* Reduce el tamaño de la fuente para evitar la sobrecarga de texto */
+    }
+
+    .sidebar {
+        min-width: 100%;  /* Hace que la barra lateral ocupe todo el ancho */
+        margin-bottom: 20px;  /* Espacio adicional entre la barra lateral y el contenido principal */
+    }
+
+    .card {
+        margin: 10px;
+    }
+}
