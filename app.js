@@ -5,8 +5,8 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
-// Configurar Handlebars
-app.engine('hbs', engine({ extname: '.hbs', defaultLayout: 'main' }));
+// Configurar Handlebars sin un layout por defecto
+app.engine('hbs', engine({ extname: '.hbs', defaultLayout: false }));
 app.set('view engine', 'hbs');
 
 // Configurar carpeta de archivos estáticos
