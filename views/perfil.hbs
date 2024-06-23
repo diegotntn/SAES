@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/css/paginaPerfil.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <!-- Contenedor del logo a la izquierda -->
+            <div class="logo-container">
+                <img src="/images/logos-ipn.png" alt="Logo IPN" class="logo-image">
+                <div class="header-text">UNIDAD PROFESIONAL INTERDISCIPLINARIA CAMPUS TLAXCALA</div>
+            </div>
+            <!-- Contenedor del icono del perfil a la derecha -->
+            <div class="profile-icon-container">
+                <img src="/images/perfilDos.png" alt="User Icon" class="profile-icon">
+            </div>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="menu-sidebar">
+            <ul class="list-unstyled">
+                <li><button class="btn">Datos personales</button></li>
+                <li><button class="btn">Calificaciones</button></li>
+                <li><button class="btn">Kárdex</button></li>
+                <li><button class="btn">Curso actual</button></li>
+                <li><button class="btn">ETS</button></li>
+                <li><button class="btn">Saberes Previos</button></li>
+                <li><button class="btn">Solicitudes</button></li>
+                <li><button class="btn">Dictamen</button></li>
+                <li><button class="btn">Reinscripciones</button></li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <!-- Contenedor central para la información del estudiante -->
+            <div class="student-info">
+                <div class="student-details">
+                    <p>Boleta: {{student.boleta}}</p>
+                    <p>Nombre: {{student.nombre}}</p>
+                    <p>Fecha de nacimiento: {{student.fechaNacimiento}}</p>
+                    <p>Nacionalidad: {{student.nacionalidad}}</p>
+                    <p>CURP: {{student.curp}}</p>
+                    <p>Sexo: {{student.sexo}}</p>
+                </div>
+            </div>
+            <!-- Contenedor derecho para la acción de imprimir y la imagen del perfil -->
+            <div class="profile-actions">
+                <img src="/images/perfil.png" alt="Foto del estudiante" class="profile-pic">
+                <button class="btn btn-primary" onclick="window.print()">Imprimir</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-bar">
+            <p>2024 SAES</p>
+            <img src="/images/logos-ipn.png" alt="Logo IPN" class="footer-logo img-fluid">
+            <p>IPN-DAE</p>
+        </div>
+    </footer>
+</body>
+</html>
