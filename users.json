@@ -1,11 +1,36 @@
 [
-    {
-      "username": "Diego",
-      "password": "12345"
-    },
-    {
-      "username": "Roberto",
-      "password": "12345"
-    }
-  ]
-  
+  {
+    "boleta": "2022300523",
+    "nombre": "Ximena Yahel Juárez Franco",
+    "fechaNacimiento": "18 Enero 2001",
+    "nacionalidad": "Mexicana",
+    "curp": "JUFX010118MMCRM45",
+    "sexo": "Mujer",
+    "password": "123456",
+    "carrera": "Ingeniería en Inteligencia Artificial",
+    "plan": "20",
+    "promedio": "9.22",
+    "grades": [
+      { "subject": "Fundamentos de Programación", "period": "23/1", "evaluation": "ORD.", "grade": "9" },
+      { "subject": "Matemáticas Discretas", "period": "23/1", "evaluation": "ORD.", "grade": "9" },
+      { "subject": "Comunicación Oral y Escrita", "period": "23/1", "evaluation": "ORD.", "grade": "10" }
+    ]
+  },
+  {
+    "boleta": "2023710180",
+    "nombre": "Diego Téllez Nieto",
+    "fechaNacimiento": "04 Marzo 2004",
+    "nacionalidad": "Mexicana",
+    "curp": "TEND040304HTLLTGA3",
+    "sexo": "cuando quieras",
+    "password": "lol",
+    "carrera": "Ingeniería en Inteligencia Artificial",
+    "plan": "20",
+    "promedio": "10",
+    "grades": [
+      { "subject": "Fundamentos de Programación", "period": "23/1", "evaluation": "ORD.", "grade": "0" },
+      { "subject": "Matemáticas Discretas", "period": "23/1", "evaluation": "ORD.", "grade": "0" },
+      { "subject": "Comunicación Oral y Escrita", "period": "23/1", "evaluation": "ORD.", "grade": "0" }
+    ]
+  }
+]

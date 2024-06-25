@@ -28,11 +28,11 @@
         <div class="card flex-fill">
             <div class="card-body">
                 <div class="row mb-3">
-                    <div class="col-12 col-md-4"><strong>Boleta:</strong> 2022300523</div>
-                    <div class="col-12 col-md-4"><strong>Nombre:</strong> Ximena Yahel Juárez Franco</div>
-                    <div class="col-12 col-md-4"><strong>Carrera:</strong> Ingeniería en Inteligencia Artificial</div>
-                    <div class="col-6 col-md-2"><strong>Plan:</strong> 20</div>
-                    <div class="col-6 col-md-2"><strong>Promedio:</strong> 9.22</div>
+                    <div class="col-12 col-md-4"><strong>Boleta:</strong> {{student.boleta}}</div>
+                    <div class="col-12 col-md-4"><strong>Nombre:</strong> {{student.nombre}}</div>
+                    <div class="col-12 col-md-4"><strong>Carrera:</strong> {{student.carrera}}</div>
+                    <div class="col-6 col-md-2"><strong>Plan:</strong> {{student.plan}}</div>
+                    <div class="col-6 col-md-2"><strong>Promedio:</strong> {{student.promedio}}</div>
                 </div>
                 <table class="table table-striped">
                     <thead class="table-header">
@@ -44,24 +44,14 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {{#each grades}}
                         <tr>
-                            <td>Fundamentos de Programación</td>
-                            <td>23/1</td>
-                            <td>ORD.</td>
-                            <td>9</td>
+                            <td>{{subject}}</td>
+                            <td>{{period}}</td>
+                            <td>{{evaluation}}</td>
+                            <td>{{grade}}</td>
                         </tr>
-                        <tr>
-                            <td>Matemáticas Discretas</td>
-                            <td>23/1</td>
-                            <td>ORD.</td>
-                            <td>9</td>
-                        </tr>
-                        <tr>
-                            <td>Comunicación Oral y Escrita</td>
-                            <td>23/1</td>
-                            <td>ORD.</td>
-                            <td class="high-grade">10</td>
-                        </tr>
+                        {{/each}}
                     </tbody>
                 </table>
             </div>

@@ -1,6 +1,9 @@
 const express = require('express');
 const { engine } = require('express-handlebars');
 const path = require('path');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const fs = require('fs');
 
 const app = express();
 const port = 3000;
@@ -12,41 +15,57 @@ app.set('view engine', 'hbs');
 // Configurar carpeta de archivos estáticos
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Rutas
+// Middleware para parsear los datos del formulario
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// Middleware para manejar las sesiones
+app.use(session({
+  secret: 'mi-secreto',
+  resave: false,
+  saveUninitialized: false
+}));
+
+// Ruta para la página de inicio de sesión y manejar la autenticación
 app.get('/', (req, res) => {
-  res.render('index', { title: 'IPN-SAES' });
+  res.render('index', { title: 'IPN-SAES', error: null });
 });
 
-app.get('/perfil', (req, res) => {
+app.post('/', (req, res) => {
+  const { boleta, password } = req.body;
+  const users = JSON.parse(fs.readFileSync('users.json'));
+
+  const user = users.find(u => u.boleta === boleta && u.password === password);
+
+  if (user) {
+    req.session.user = user;
+    res.redirect('/perfil');
+  } else {
+    res.render('index', { title: 'IPN-SAES', error: 'Boleta o contraseña incorrecta' });
+  }
+});
+
+// Middleware para verificar si el usuario está autenticado
+function isAuthenticated(req, res, next) {
+  if (req.session.user) {
+    next();
+  } else {
+    res.redirect('/');
+  }
+}
+
+// Rutas protegidas
+app.get('/perfil', isAuthenticated, (req, res) => {
   res.render('perfil', {
     title: 'Perfil Estudiantil - IPN Campus Tlaxcala',
-    student: {
-      boleta: '2022300523',
-      nombre: 'Ximena Yahel Juárez Franco',
-      fechaNacimiento: '18 Enero 2001',
-      nacionalidad: 'Mexicana',
-      curp: 'JUFX010118MMCRM45',
-      sexo: 'Mujer'
-    }
+    student: req.session.user
   });
 });
 
-// Nueva ruta para /boleta
-app.get('/boleta', (req, res) => {
+app.get('/boleta', isAuthenticated, (req, res) => {
   res.render('boleta', {
     title: 'Boleta de Calificaciones - IPN Campus Tlaxcala',
-    student: {
-      boleta: '2022300523',
-      nombre: 'Ximena Yahel Juárez Franco',
-      carrera: 'Ingeniería en Inteligencia Artificial',
-      plan: '20',
-      promedio: '9.22'
-    },
-    grades: [
-      { subject: 'Fundamentos de Programación', period: '23/1', evaluation: 'ORD.', grade: '9' },
-      { subject: 'Matemáticas Discretas', period: '23/1', evaluation: 'ORD.', grade: '9' },
-      { subject: 'Comunicación Oral y Escrita', period: '23/1', evaluation: 'ORD.', grade: '10' }
-    ]
+    student: req.session.user,
+    grades: req.session.user.grades
   });
 });
 
